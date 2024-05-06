@@ -1,0 +1,33 @@
+Web Form 1 : 
+
+protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm2.aspx?MyName= " + TextBox1.Text.ToString());
+        }
+
+
+Web Form 2 :
+
+
+protected void Page_Load(object sender, EventArgs e)
+        {
+            Label1.Text = "Welcome" + Request.QueryString["MyName"];
+        }
+
+
+Web Form 3 :
+
+protected void Button1_Click(object sender, EventArgs e)
+        {
+            ViewState["MyName"] = TextBox1.Text.ToString();
+            TextBox1.Text = "";
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            if(ViewState["MyName"]!=null)
+            {
+                TextBox1.Text = ViewState["MyName"].ToString();
+            }
+        }
+

@@ -1,0 +1,12 @@
+protected void Button1_Click(object sender, EventArgs e)
+        {
+            int i;
+
+            for (i = 0; i < ListBox1.Items.Count; i++)
+            { 
+                if(ListBox1.Items[i].Selected == true)
+                {
+                    TextBox1.Text += ListBox1.Items[i].Text + "\n";
+                }
+            }
+        }

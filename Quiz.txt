@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace quiz
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Clear previous messages and scores on page load
+            correct1.Text = "";
+            incorrect1.Text = "";
+            incorrect2.Text = "";
+            Your_Score.Text = "";  
+    }
+
+        protected void CalculateScore_Click(object sender, EventArgs e)
+        {
+             int score = 0;
+
+            if (RadioButton2.Checked)
+            {
+                correct1.Text = "Answer for Question 1 is Correct";
+                score++;
+            }
+            else
+            {
+                incorrect1.Text = "Wrong Answer selected for Question 1";
+            }
+
+            if (RadioButton6.Checked)
+            {
+                correct2.Text = "Answer for Question 2 is Correct";
+                score++;
+            }
+            else
+            {
+                incorrect2.Text = "Wrong Answer selected for Question 2";
+            }
+
+            // Calculate score for other questions in a similar manner...
+
+            Your_Score.Text = "Your Score is -> " + score.ToString() + "/5";
+
+        }
+    }
+}
